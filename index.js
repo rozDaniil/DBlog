@@ -14,7 +14,7 @@ import { commentCreateValidation } from './validation/commentValidation.js'
 import checkAuth from './utils/checkAuth.js'
 
 mongoose
-    .connect('mongodb+srv://admin:17111993@cluster0.uvitcah.mongodb.net/test')
+    .connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('DB OK!')
     })
@@ -66,7 +66,7 @@ app.patch('/posts/:id',checkAuth, postCreateValidation, handleValidationErrors, 
 app.delete('/posts/:id', checkAuth, PostController.deletePost)
 app.get('/posts/user/:id',checkAuth, PostController.getUser)
 
-app.listen(PORT, (err) => {
+app.listen(process.env.PORT || PORT, (err) => {
     if (err) {
         return console.log(err)
     } 
