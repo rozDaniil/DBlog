@@ -60,7 +60,7 @@ app.post('/comment', checkAuth, commentCreateValidation, handleValidationErrors,
 app.post('/auth/login', loginValidation, handleValidationErrors, UserController.login)
 app.post('/auth/register', registerValidation, handleValidationErrors, UserController.register)
 app.get('/auth/me', checkAuth, UserController.getMe)
-app.get('/user/:id', checkAuth, UserController.getUser)
+app.get('/user/:id', UserController.getUser)
 app.patch('/user/:id', userUpdateValidation, handleValidationErrors, checkAuth, UserController.updateUser)
 
 app.get('/posts', PostController.getAll)
