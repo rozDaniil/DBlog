@@ -68,7 +68,7 @@ app.get('/posts/:id', PostController.getOne)
 app.post('/posts',checkAuth, postCreateValidation, handleValidationErrors, PostController.createPost)
 app.patch('/posts/:id',checkAuth, postCreateValidation, handleValidationErrors, PostController.updatePost)
 app.delete('/posts/:id', checkAuth, PostController.deletePost)
-app.get('/posts/user/:id',checkAuth, PostController.getUser)
+app.get('/posts/user/:id', PostController.getUser)
 
 app.listen(process.env.PORT || PORT, (err) => {
     if (err) {
